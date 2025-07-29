@@ -13,7 +13,7 @@ services:
     volumes:
       - ./playbooks:/root/playbooks
       - ./controller-ssh:/root/.ssh
-      - ./scripts:/root/scripts:ro
+      - ./scripts:/root/scripts
     working_dir: /root/playbooks
 
   serverA:
