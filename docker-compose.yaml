@@ -1,0 +1,33 @@
+name: ansible-lab
+
+services:
+  controller:
+    container_name: controller
+    image: riveroverflow/ansible-lab:1.0
+    entrypoint: /bin/bash
+    command: 
+      - -c
+      - sleep infinity
+    networks:
+      - ansible
+    volumes:
+      - ./playbooks:/root/playbooks
+      - ./controller-ssh:/root/.ssh
+      - ./scripts:/root/scripts:ro
+    working_dir: /root/playbooks
+
+  serverA:
+    container_name: serverA
+    image: riveroverflow/ansible-lab:1.0
+    networks:
+      - ansible
+
+  serverB:
+    container_name: serverB
+    image: riveroverflow/ansible-lab:1.0
+    networks:
+      - ansible
+  
+networks:
+  ansible:
+    name: "ansible_network"
