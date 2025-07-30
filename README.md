@@ -2,6 +2,10 @@
 
 A Simple and repeatable Ansible lab setup using Docker Compose.
 
+> [!WARNING]
+> This system does not support systemd,  
+> So if you want full access, you have to use vm.
+
 ## Overview
 
 This lab creates a basic Ansible environment with the following containers:
