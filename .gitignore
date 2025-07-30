@@ -1,2 +1,2 @@
-./playbooks/*
-./controller-ssh/*
+playbooks/
+controller-ssh/

@@ -10,9 +10,11 @@ if [ ! -f $FILE ]; then
     exit 1
 fi
 
-while IFS= read -r server; do
-    echo "copying key to: $server"
-    ssh-copy-id "$USER@$server" -o StrictHostKeyChecking=no
+while IFS= read -r server || [ -n "$server" ]; do
+    server=$(echo "$server" | xargs)
+    target="$USER@$server"
+    echo "copying key to: $target"
+    ssh-copy-id -o StrictHostKeyChecking=no "$target" 
 done < "$FILE"
 
 echo "key distribution done!"

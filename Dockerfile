@@ -8,9 +8,13 @@ dnf clean all
 RUN sed -i 's/#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
     sed -i 's/#PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config
 
+RUN ssh-keygen -A
+
 RUN useradd ansible-user
 
 RUN echo 'ansible-user:1234' | chpasswd
+
+RUN echo 'root:1234' | chpasswd
 
 RUN touch /etc/sudoers.d/ansible
 

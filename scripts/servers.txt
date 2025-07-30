@@ -1,2 +1,3 @@
-serverA
-serverB
+server-a
+server-b
+server-c
